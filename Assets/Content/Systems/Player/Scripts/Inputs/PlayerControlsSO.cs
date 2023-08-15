@@ -39,4 +39,24 @@ public class PlayerControlsSO : InputManagerBase
     {
         return _PlayerActions.Game.MousePos.ReadValue<Vector2>();
     }
+
+    public override bool RetrieveNormalAttack()
+    {
+        return _PlayerActions.Game.NormalAttack.WasPerformedThisFrame();
+    }
+
+    public override bool RetrieveAbility1()
+    {
+        return _PlayerActions.Game.Ability1.WasPerformedThisFrame();
+    }
+
+    public override bool RetrieveAbility2()
+    {
+        return _PlayerActions.Game.Ability2.WasPerformedThisFrame();
+    }
+
+    public override bool RetrieveAbility3()
+    {
+        return _PlayerActions.Game.Ability3.WasPerformedThisFrame();
+    }
 }

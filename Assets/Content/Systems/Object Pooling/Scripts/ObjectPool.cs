@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class ObjectPool
 {
-    private static Dictionary<string, Queue<IObjectPoolItem>> _ObjectPoolMain;
+    private static Dictionary<string, Queue<IObjectPoolItem>> _ObjectPoolMain = new();
     private static Transform _ObjectPoolsParent;
 
     private static bool CheckObjectPool(string _ObjectPoolKey) => _ObjectPoolMain.ContainsKey(_ObjectPoolKey);
@@ -14,14 +14,17 @@ public static class ObjectPool
         if (!CheckObjectPool(_ObjectPoolKey))
         {
             if (_ObjectPoolsParent == null)
-                _ObjectPoolsParent = GameObject.Instantiate(new GameObject("Object Pools")).transform;
+                _ObjectPoolsParent = new GameObject("Object Pools").transform;
 
-            Transform _ItemParent = GameObject.Instantiate(new GameObject(_ObjectPoolKey)).transform;
+            Transform _ItemParent = new GameObject(_ObjectPoolKey).transform;
+            _ItemParent.parent = _ObjectPoolsParent.transform;
 
             Queue<IObjectPoolItem> _NewObjectPoolQueue = new();
             for(int i = 0; i < _PoolAmount; i++)
             {
-                IObjectPoolItem _NewObjectpoolItem = GameObject.Instantiate(_Object.GetGameObject(), _ItemParent).GetComponent<IObjectPoolItem>();
+                GameObject _NewGameObject = GameObject.Instantiate(_Object.GetGameObject(), _ItemParent);
+                _NewGameObject.SetActive(false);
+                IObjectPoolItem _NewObjectpoolItem = _NewGameObject.GetComponent<IObjectPoolItem>();
                 _NewObjectPoolQueue.Enqueue(_NewObjectpoolItem);
             }
             _ObjectPoolMain.Add(_ObjectPoolKey, _NewObjectPoolQueue);

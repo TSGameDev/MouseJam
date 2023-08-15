@@ -29,6 +29,12 @@ public class Movement : MonoBehaviour
     private void Update()
     {
         _Direction.x = controls.RetrieveHorizontalMovement();
+
+        if (_Direction.x < 0)
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        else if (_Direction.x > 0)
+            transform.eulerAngles = new Vector3(0, 0, 0);
+
         _DesiredVelocity = new Vector2(_Direction.x, 0) * Mathf.Max(maxSpeed - _GroundCheck.GetFriction(), 0f);
     }
 

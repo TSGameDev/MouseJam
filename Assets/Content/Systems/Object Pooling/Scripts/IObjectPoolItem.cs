@@ -11,10 +11,12 @@ public interface IObjectPoolItem
 public struct ObjectPoolItemData
 {
     public Vector3 spawnPosition;
+    public Vector3 characterLookDir;
 
-    public ObjectPoolItemData(Vector3 _SpawnPosition)
+    public ObjectPoolItemData(Vector3 _SpawnPosition = new(), Vector3 _CharacterLookDir = new())
     {
         spawnPosition = _SpawnPosition;
+        characterLookDir = _CharacterLookDir;
     }
 }
 
