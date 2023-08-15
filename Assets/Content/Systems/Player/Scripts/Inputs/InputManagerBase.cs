@@ -8,4 +8,5 @@ public abstract class InputManagerBase : ScriptableObject
     public abstract float RetrieveHorizontalMovement();
     public abstract bool RetrieveJump();
     public abstract bool RetrieveFallThrough();
+    public abstract Vector2 RetrieveMousePos();
 }
