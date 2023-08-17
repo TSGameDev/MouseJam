@@ -8,4 +8,9 @@ public abstract class AbilityCore : ScriptableObject, IAbility
     {
         throw new System.NotImplementedException();
     }
+
+    public virtual void SetUp()
+    {
+        throw new System.NotImplementedException();
+    }
 }

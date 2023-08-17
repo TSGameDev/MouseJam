@@ -9,7 +9,7 @@ public static class ObjectPool
 
     private static bool CheckObjectPool(string _ObjectPoolKey) => _ObjectPoolMain.ContainsKey(_ObjectPoolKey);
 
-    public static void CreateObjectPool(string _ObjectPoolKey, IObjectPoolItem _Object, int _PoolAmount)
+    public static Queue<IObjectPoolItem> CreateObjectPool(string _ObjectPoolKey, IObjectPoolItem _Object, int _PoolAmount)
     {
         if (!CheckObjectPool(_ObjectPoolKey))
         {
@@ -24,10 +24,12 @@ public static class ObjectPool
             {
                 GameObject _NewGameObject = GameObject.Instantiate(_Object.GetGameObject(), _ItemParent);
                 _NewGameObject.SetActive(false);
+
                 IObjectPoolItem _NewObjectpoolItem = _NewGameObject.GetComponent<IObjectPoolItem>();
                 _NewObjectPoolQueue.Enqueue(_NewObjectpoolItem);
             }
             _ObjectPoolMain.Add(_ObjectPoolKey, _NewObjectPoolQueue);
+            return _NewObjectPoolQueue;
         }
         else
         {
