@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour, IObjectPoolItem
 {
-    [SerializeField][Range(1,40)] private float projectileMaxDistance = 10f;
-    [SerializeField][Range(1, 10)] private float projectileSpeed = 2f;
-    //[SerializeField][Range(1, 100)] private float projectileDamage = 10f;
+    [SerializeField] private float projectileMaxDistance;
+    [SerializeField] private float projectileSpeed;
+    [SerializeField] private float projectileDamage;
+    [SerializeField] private bool isAreaEffect;
+    [SerializeField] private float areaEffectRadius;
 
-    private Vector3 _MovementDir;
     private float _ProjectileTravelDistance = 0f;
+    private Vector3 _MovementDir;
+
+    public GameObject GetGameObject() => gameObject;
 
     private void Update()
     {
@@ -22,18 +26,16 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
             gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
-    public GameObject GetGameObject() => gameObject;
-
     public void Reset(ObjectPoolItemData _NextItemResetData)
     {
         _ProjectileTravelDistance = 0;
         transform.position = _NextItemResetData.spawnPosition;
         _MovementDir = _NextItemResetData.characterLookDir;
         gameObject.SetActive(true);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
     }
 }

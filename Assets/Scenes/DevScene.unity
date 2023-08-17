@@ -412,11 +412,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8901401761087265272, guid: 297bcdf6104c16b4a93bd654fe5a7110, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3656382008407684293, guid: 297bcdf6104c16b4a93bd654fe5a7110, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1552531703512207829}
   m_SourcePrefab: {fileID: 100100000, guid: 297bcdf6104c16b4a93bd654fe5a7110, type: 3}
+--- !u!1 &1552531703512207827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3656382008407684293, guid: 297bcdf6104c16b4a93bd654fe5a7110, type: 3}
+  m_PrefabInstance: {fileID: 1552531703512207826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1552531703512207828 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2108551082873992448, guid: 297bcdf6104c16b4a93bd654fe5a7110, type: 3}
+  m_PrefabInstance: {fileID: 1552531703512207826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1552531703512207829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552531703512207827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb521a6a8e929843a6482ad16d82b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controls: {fileID: 11400000, guid: ac2f29dc6e7a9c844a021a4bf1d54743, type: 2}
+  projectileFirePoint: {fileID: 1552531703512207828}
+  normalAtack: {fileID: 11400000, guid: a66d2afdc2717c64ab3d44c9c7dda2f8, type: 2}
+  isNormalProjectile: 1
+  Ability1: {fileID: 0}
+  isAbility1Projectile: 0
+  Ability2: {fileID: 0}
+  isAbility2Projectile: 0
+  Ability3: {fileID: 0}
+  isAbility3Projectile: 0
 --- !u!1001 &2274278446019200368
 PrefabInstance:
   m_ObjectHideFlags: 0

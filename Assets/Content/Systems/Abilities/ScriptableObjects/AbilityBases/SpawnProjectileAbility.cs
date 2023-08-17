@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [CreateAssetMenu(fileName = "New Projectile Spawn Ability", menuName = "Abilities/New Projectile Spawn Ability")]
 public class SpawnProjectileAbility : AbilityCore
@@ -8,18 +9,17 @@ public class SpawnProjectileAbility : AbilityCore
     [SerializeField] private GameObject projectilePrefab;
 
     [Header("Projectile Settings")]
-    [SerializeField] private float projectileMaxDistance;
-    [SerializeField] private float projectileSpeed;
-    [SerializeField] private float projectileDamage;
-    [SerializeField] private string projectileObjectpoolKey;
+    [SerializeField] private string projectileName;
+
+    private int NUMBER_OF_OBJECTPOOLED_PROJECTILES = 20;
 
     public override void SetUp()
     {
-
+        ObjectPool.CreateObjectPool(projectileName, projectilePrefab.GetComponent<IObjectPoolItem>(), NUMBER_OF_OBJECTPOOLED_PROJECTILES);
     }
 
-    public override void Perform()
+    public override void Perform(Vector3 _SpawnPos, Vector3 _CharacterLookDir)
     {
-        base.Perform();
+        ObjectPool.SpawnItem(projectileName, new ObjectPoolItemData(_SpawnPos, _CharacterLookDir));
     }
 }

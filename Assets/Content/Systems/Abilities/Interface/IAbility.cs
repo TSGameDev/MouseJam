@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IAbility
 {
-    public void Perform();
+    public void Perform(Vector3 _SpawnPos, Vector3 _CharacterLookDir);
     public void SetUp();
 }
