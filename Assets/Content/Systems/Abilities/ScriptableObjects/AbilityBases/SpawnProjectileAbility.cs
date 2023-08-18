@@ -18,8 +18,8 @@ public class SpawnProjectileAbility : AbilityCore
         ObjectPool.CreateObjectPool(projectileName, projectilePrefab.GetComponent<IObjectPoolItem>(), NUMBER_OF_OBJECTPOOLED_PROJECTILES);
     }
 
-    public override void Perform(Vector3 _SpawnPos, Vector3 _CharacterLookDir)
+    public override void Perform(Transform _SpawnTrans, Vector3 _CharacterLookDir)
     {
-        ObjectPool.SpawnItem(projectileName, new ObjectPoolItemData(_SpawnPos, _CharacterLookDir));
+        ObjectPool.SpawnItem(projectileName, new ObjectPoolItemData(_SpawnTrans.position, _CharacterLookDir));
     }
 }

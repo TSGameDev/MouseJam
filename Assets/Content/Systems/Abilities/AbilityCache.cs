@@ -42,31 +42,31 @@ public class AbilityCache : MonoBehaviour
     private void PerformNormalAttack()
     {
         if (isNormalProjectile)
-            normalAtack?.Perform(projectileFirePoint.position, transform.right);
+            normalAtack?.Perform(projectileFirePoint, transform.right);
         else
-            normalAtack?.Perform(transform.position, transform.right);
+            normalAtack?.Perform(transform, transform.right);
     }
 
     private void PerformAbility1()
     {
         if (isAbility1Projectile)
-            Ability1?.Perform(projectileFirePoint.position, transform.right);
+            Ability1?.Perform(projectileFirePoint, transform.right);
         else
-            Ability1?.Perform(transform.position, transform.right);
+            Ability1?.Perform(transform, transform.right);
     }
     private void PerformAbility2()
     {
         if (isAbility2Projectile)
-            Ability2?.Perform(projectileFirePoint.position, transform.right);
+            Ability2?.Perform(projectileFirePoint, transform.right);
         else
-            Ability2?.Perform(transform.position, transform.right);
+            Ability2?.Perform(transform, transform.right);
     }
 
     private void PerformAbility3()
     {
         if (isAbility3Projectile)
-            Ability3?.Perform(projectileFirePoint.position, transform.right);
+            Ability3?.Perform(projectileFirePoint, transform.right);
         else
-            Ability3?.Perform(transform.position, transform.right);
+            Ability3?.Perform(transform, transform.right);
     }
 }
