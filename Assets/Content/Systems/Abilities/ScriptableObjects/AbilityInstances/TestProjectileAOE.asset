@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29dd8ace2a0356942b515b015ce630b6, type: 3}
-  m_Name: TestTeleport
+  m_Script: {fileID: 11500000, guid: 6c59c9346d009bd4d97259c5d83152e4, type: 3}
+  m_Name: TestProjectileAOE
   m_EditorClassIdentifier: 
-  abilityName: Blink
-  teleportDistance: 10
-  BeginTeleport: []
-  EndTeleport: []
+  projectilePrefab: {fileID: 6482772738607379157, guid: 923f2eb3079c4e94f8ab25656c590197, type: 3}
+  projectileName: Test Projectile AOE

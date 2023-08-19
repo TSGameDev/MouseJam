@@ -599,8 +599,8 @@ MonoBehaviour:
   isAbility1Projectile: 0
   Ability2: {fileID: 11400000, guid: 887f9c1d62aaae14a81632718632646d, type: 2}
   isAbility2Projectile: 0
-  Ability3: {fileID: 0}
-  isAbility3Projectile: 0
+  Ability3: {fileID: 11400000, guid: ba4a852897f15dc47a29f07f79fc9c7c, type: 2}
+  isAbility3Projectile: 1
 --- !u!1001 &2274278446019200368
 PrefabInstance:
   m_ObjectHideFlags: 0

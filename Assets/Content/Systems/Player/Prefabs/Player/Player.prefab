@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6221573829257083684}
   - component: {fileID: 8858798101163028479}
   - component: {fileID: 703589619005118464}
-  - component: {fileID: 8901401761087265272}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -250,21 +249,6 @@ MonoBehaviour:
   maxAirJumps: 2
   downwardGravityMultiplier: 3
   upwardGravityMultiplier: 1.7
---- !u!114 &8901401761087265272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3656382008407684293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccce8369424ed264cac54bd34546cab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controls: {fileID: 11400000, guid: ac2f29dc6e7a9c844a021a4bf1d54743, type: 2}
-  normalAttackProjectile: {fileID: 7567735217261028036, guid: a0299e5fd0a122d448eb17c64deb7827, type: 3}
-  normalAttackSpawnPos: {fileID: 2108551082873992448}
 --- !u!1 &8412661460353436802
 GameObject:
   m_ObjectHideFlags: 0

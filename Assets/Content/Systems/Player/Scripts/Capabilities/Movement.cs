@@ -30,10 +30,7 @@ public class Movement : MonoBehaviour
     {
         _Direction.x = controls.RetrieveHorizontalMovement();
 
-        if (_Direction.x < 0)
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        else if (_Direction.x > 0)
-            transform.eulerAngles = new Vector3(0, 0, 0);
+        //Add Player visual flip and have the fire pos transform flip to a different point based on playing direction.
 
         _DesiredVelocity = new Vector2(_Direction.x, 0) * Mathf.Max(maxSpeed - _GroundCheck.GetFriction(), 0f);
     }
