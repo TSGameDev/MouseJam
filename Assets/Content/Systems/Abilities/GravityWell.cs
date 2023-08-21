@@ -32,7 +32,6 @@ public class GravityWell : MonoBehaviour, IObjectPoolItem
     private void GravityWellFunctionality()
     {
         Collider2D[] _enemiesInRange = Physics2D.OverlapCircleAll(transform.position, pullRadius, enemyLayer);
-        Debug.Log($"Number of Enemies in Range: {_enemiesInRange.Length}");
         foreach (Collider2D collider in _enemiesInRange)
         {
             Transform _EnemyTrans = collider.gameObject.transform;

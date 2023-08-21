@@ -16,6 +16,8 @@ public class AbilityCache : MonoBehaviour
     [SerializeField] private AbilityCore Ability3;
     [SerializeField] private bool isAbility3Projectile = false;
 
+    private Vector3 _CharacterLookDir;
+
     private void Start()
     {
         normalAtack?.SetUp();
@@ -26,6 +28,11 @@ public class AbilityCache : MonoBehaviour
 
     private void Update()
     {
+        if (transform.localScale.x > 0)
+            _CharacterLookDir = transform.right;
+        else if (transform.localScale.x < 0)
+            _CharacterLookDir = -transform.right;
+
         if (controls.RetrieveNormalAttack())
             PerformNormalAttack();
 
@@ -42,31 +49,31 @@ public class AbilityCache : MonoBehaviour
     private void PerformNormalAttack()
     {
         if (isNormalProjectile)
-            normalAtack?.Perform(projectileFirePoint, transform.right);
+            normalAtack?.Perform(projectileFirePoint, _CharacterLookDir);
         else
-            normalAtack?.Perform(transform, transform.right);
+            normalAtack?.Perform(transform, _CharacterLookDir);
     }
 
     private void PerformAbility1()
     {
         if (isAbility1Projectile)
-            Ability1?.Perform(projectileFirePoint, transform.right);
+            Ability1?.Perform(projectileFirePoint, _CharacterLookDir);
         else
-            Ability1?.Perform(transform, transform.right);
+            Ability1?.Perform(transform, _CharacterLookDir);
     }
     private void PerformAbility2()
     {
         if (isAbility2Projectile)
-            Ability2?.Perform(projectileFirePoint, transform.right);
+            Ability2?.Perform(projectileFirePoint, _CharacterLookDir);
         else
-            Ability2?.Perform(transform, transform.right);
+            Ability2?.Perform(transform, _CharacterLookDir);
     }
 
     private void PerformAbility3()
     {
         if (isAbility3Projectile)
-            Ability3?.Perform(projectileFirePoint, transform.right);
+            Ability3?.Perform(projectileFirePoint, _CharacterLookDir);
         else
-            Ability3?.Perform(transform, transform.right);
+            Ability3?.Perform(transform, _CharacterLookDir);
     }
 }

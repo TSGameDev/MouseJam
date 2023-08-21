@@ -6,9 +6,10 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
 {
     [SerializeField] private float projectileMaxDistance;
     [SerializeField] private float projectileSpeed;
-    [SerializeField] private float projectileDamage;
+    [SerializeField] private int projectileDamage;
     [SerializeField] private bool isAreaEffect;
     [SerializeField] private float areaEffectRadius;
+    [SerializeField] private LayerMask enemyLayer;
 
     private float _ProjectileTravelDistance = 0f;
     private Vector3 _MovementDir;
@@ -23,7 +24,24 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
         _ProjectileTravelDistance += _FrameMovementFloat;
         
         if(_ProjectileTravelDistance >= projectileMaxDistance)
-            gameObject.SetActive(false);
+        {
+            if (isAreaEffect)
+                DamageArea();
+            else
+                gameObject.SetActive(false);
+        }
+    }
+
+    public void DamageArea()
+    {
+        Collider2D[] _enemiesInRange = Physics2D.OverlapCircleAll(transform.position, areaEffectRadius, enemyLayer);
+        foreach(Collider2D enemy in _enemiesInRange)
+        {
+            IDamagable _TargetDamamge = enemy.gameObject.GetComponent<IDamagable>();
+            _TargetDamamge?.Damage(projectileDamage);
+        }
+        // Spawn AOE effect
+        gameObject.SetActive(false);
     }
 
     public void Reset(ObjectPoolItemData _NextItemResetData)
@@ -36,6 +54,12 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.collider.CompareTag("Player"))
+            return;
 
+        IDamagable _TargetDamage = collision.gameObject.GetComponent<IDamagable>();
+        _TargetDamage?.Damage(projectileDamage);
+        //spawn hit effect
+        gameObject.SetActive(false);
     }
 }

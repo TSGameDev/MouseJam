@@ -27,14 +27,20 @@ public class GroundCheck : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        EvaluateCollision(collision);
-        RetrieveFriction(collision);
+        if(collision.collider.CompareTag("Terrain"))
+        {
+            EvaluateCollision(collision);
+            RetrieveFriction(collision);
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        EvaluateCollision(collision);
-        RetrieveFriction(collision);
+        if (collision.collider.CompareTag("Terrain"))
+        {
+            EvaluateCollision(collision);
+            RetrieveFriction(collision);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

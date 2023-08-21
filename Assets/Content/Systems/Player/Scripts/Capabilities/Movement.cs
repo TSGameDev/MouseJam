@@ -31,6 +31,17 @@ public class Movement : MonoBehaviour
         _Direction.x = controls.RetrieveHorizontalMovement();
 
         //Add Player visual flip and have the fire pos transform flip to a different point based on playing direction.
+        if(_Direction.x > 0)
+        {
+            //moving right
+            transform.localScale = new Vector3(1,2,1);
+        }
+        else if(_Direction.x < 0)
+        {
+            //moving left
+            //Flips visuals to face left
+            transform.localScale = new Vector3(-1, 2, 1);
+        }
 
         _DesiredVelocity = new Vector2(_Direction.x, 0) * Mathf.Max(maxSpeed - _GroundCheck.GetFriction(), 0f);
     }
