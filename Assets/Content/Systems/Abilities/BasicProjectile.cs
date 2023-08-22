@@ -56,6 +56,11 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
     {
         if (collision.collider.CompareTag("Player"))
             return;
+        if (isAreaEffect)
+        {
+            DamageArea();
+            return;
+        }
 
         IDamagable _TargetDamage = collision.gameObject.GetComponent<IDamagable>();
         _TargetDamage?.Damage(projectileDamage);

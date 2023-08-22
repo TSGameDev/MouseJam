@@ -100,12 +100,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileMaxDistance: 50
   projectileSpeed: 15
-  projectileDamage: 10
+  projectileDamage: 100
   isAreaEffect: 1
   areaEffectRadius: 5
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!58 &3203747310336099102
 CircleCollider2D:
   m_ObjectHideFlags: 0

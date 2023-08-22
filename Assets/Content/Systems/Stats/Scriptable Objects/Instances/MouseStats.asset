@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3dba9a85e895949953d3698cd068cd, type: 3}
   m_Name: MouseStats
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  baseMaxHealth: 100
+  baseMaxSpeed: 10
+  baseAcceleration: 100
+  baseAirAcceleration: 85
+  baseJumpHeight: 5
+  baseMaxAirJumps: 2
+  baseDownwardGravityMultiplier: 3
+  baseUpwardGravityMultiplier: 1.7

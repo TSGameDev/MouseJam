@@ -13,12 +13,14 @@ GameObject:
   - component: {fileID: 2955557452040625754}
   - component: {fileID: 1135698909658783787}
   - component: {fileID: 3058182995993498401}
+  - component: {fileID: 3844881878585962341}
   - component: {fileID: 6221573829257083684}
   - component: {fileID: 8858798101163028479}
   - component: {fileID: 703589619005118464}
+  - component: {fileID: 1164955555361231142}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,6 +206,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &3844881878585962341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656382008407684293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 956ff89c2a596af4683fbe13ad6bb20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats: {fileID: 11400000, guid: 95251beb7711de04c96a56708e1566b8, type: 2}
 --- !u!114 &6221573829257083684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,9 +232,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls: {fileID: 11400000, guid: ac2f29dc6e7a9c844a021a4bf1d54743, type: 2}
-  maxSpeed: 10
-  maxAcceleration: 100
-  maxAirAcceleration: 85
 --- !u!114 &8858798101163028479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,10 +257,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controls: {fileID: 11400000, guid: ac2f29dc6e7a9c844a021a4bf1d54743, type: 2}
-  jumpHeight: 4
-  maxAirJumps: 2
-  downwardGravityMultiplier: 3
-  upwardGravityMultiplier: 1.7
+--- !u!114 &1164955555361231142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656382008407684293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb521a6a8e929843a6482ad16d82b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controls: {fileID: 11400000, guid: ac2f29dc6e7a9c844a021a4bf1d54743, type: 2}
+  projectileFirePoint: {fileID: 2108551082873992448}
+  normalAtack: {fileID: 11400000, guid: a66d2afdc2717c64ab3d44c9c7dda2f8, type: 2}
+  isNormalProjectile: 1
+  Ability1: {fileID: 11400000, guid: b05532747ae9d8d4e8d1d3259a8ad66b, type: 2}
+  isAbility1Projectile: 0
+  Ability2: {fileID: 11400000, guid: 887f9c1d62aaae14a81632718632646d, type: 2}
+  isAbility2Projectile: 0
+  Ability3: {fileID: 11400000, guid: ba4a852897f15dc47a29f07f79fc9c7c, type: 2}
+  isAbility3Projectile: 1
 --- !u!1 &8412661460353436802
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +304,7 @@ Transform:
   m_GameObject: {fileID: 8412661460353436802}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

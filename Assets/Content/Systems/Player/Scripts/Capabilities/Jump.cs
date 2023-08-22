@@ -5,10 +5,18 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     [SerializeField] private InputManagerBase controls;
-    [SerializeField, Range(0f, 10f)] private float jumpHeight = 3f;
-    [SerializeField, Range(0, 5)] private int maxAirJumps = 1;
-    [SerializeField, Range(0, 5f)] private float downwardGravityMultiplier = 3f;
-    [SerializeField, Range(0f, 5f)] private float upwardGravityMultiplier = 1.7f;
+
+    private float jumpHeight;
+    private int maxAirJumps;
+    private float downwardGravityMultiplier;
+    private float upwardGravityMultiplier;
+    public void SetUpDependancies(InstanceEntityStats _EntityStats)
+    {
+        jumpHeight = _EntityStats.jumpHeight;
+        maxAirJumps = _EntityStats.maxAirJumps;
+        downwardGravityMultiplier = _EntityStats.downwardGravitityMuliplier;
+        upwardGravityMultiplier = _EntityStats.upwardGravitiyMuliplier; 
+    }
 
     private Rigidbody2D _RB;
     private GroundCheck _GroundCheck;

@@ -5,9 +5,17 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField] private InputManagerBase controls;
-    [SerializeField, Range(0f, 100f)] private float maxSpeed = 4f;
-    [SerializeField, Range(0f, 100f)] private float maxAcceleration = 35f;
-    [SerializeField, Range(0f, 100f)] private float maxAirAcceleration = 20f;
+
+    private float maxSpeed;
+    private float maxAcceleration;
+    private float maxAirAcceleration;
+
+    public void SetUpDependancies(InstanceEntityStats _EntityStats)
+    {
+        maxSpeed = _EntityStats.maxSpeed;
+        maxAcceleration = _EntityStats.acceleration;
+        maxAirAcceleration = _EntityStats.airAcceleration;
+    }
 
     private Vector2 _Direction;
     private Vector2 _DesiredVelocity;
