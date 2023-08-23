@@ -8,18 +8,15 @@ public class SpawnProjectileAbility : AbilityCore
 {
     [SerializeField] private GameObject projectilePrefab;
 
-    [Header("Projectile Settings")]
-    [SerializeField] private string projectileName;
-
     private int NUMBER_OF_OBJECTPOOLED_PROJECTILES = 20;
 
     public override void SetUp()
     {
-        ObjectPool.CreateObjectPool(projectileName, projectilePrefab.GetComponent<IObjectPoolItem>(), NUMBER_OF_OBJECTPOOLED_PROJECTILES);
+        ObjectPool.CreateObjectPool(effectName, projectilePrefab.GetComponent<IObjectPoolItem>(), NUMBER_OF_OBJECTPOOLED_PROJECTILES);
     }
 
     public override void Perform(Transform _SpawnTrans, Vector3 _CharacterLookDir)
     {
-        ObjectPool.SpawnItem(projectileName, new ObjectPoolItemData(_SpawnTrans.position, _CharacterLookDir));
+        ObjectPool.SpawnItem(effectName, new ObjectPoolItemData(_SpawnTrans.position, _CharacterLookDir));
     }
 }

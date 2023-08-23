@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dd8ace2a0356942b515b015ce630b6, type: 3}
   m_Name: TestTeleport
   m_EditorClassIdentifier: 
-  abilityName: Blink
+  effectName: Blink
+  effectDescription: 
+  cooldownTime: 5
   teleportDistance: 10
   BeginTeleport: []
   EndTeleport: []

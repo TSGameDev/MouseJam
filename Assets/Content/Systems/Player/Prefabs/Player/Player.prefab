@@ -273,12 +273,12 @@ MonoBehaviour:
   projectileFirePoint: {fileID: 2108551082873992448}
   normalAtack: {fileID: 11400000, guid: a66d2afdc2717c64ab3d44c9c7dda2f8, type: 2}
   isNormalProjectile: 1
-  Ability1: {fileID: 11400000, guid: b05532747ae9d8d4e8d1d3259a8ad66b, type: 2}
-  isAbility1Projectile: 0
+  Ability1: {fileID: 11400000, guid: ba4a852897f15dc47a29f07f79fc9c7c, type: 2}
+  isAbility1Projectile: 1
   Ability2: {fileID: 11400000, guid: 887f9c1d62aaae14a81632718632646d, type: 2}
   isAbility2Projectile: 0
-  Ability3: {fileID: 11400000, guid: ba4a852897f15dc47a29f07f79fc9c7c, type: 2}
-  isAbility3Projectile: 1
+  Ability3: {fileID: 11400000, guid: b05532747ae9d8d4e8d1d3259a8ad66b, type: 2}
+  isAbility3Projectile: 0
 --- !u!1 &8412661460353436802
 GameObject:
   m_ObjectHideFlags: 0

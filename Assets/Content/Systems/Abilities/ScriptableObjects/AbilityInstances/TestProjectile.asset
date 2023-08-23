@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c9346d009bd4d97259c5d83152e4, type: 3}
   m_Name: TestProjectile
   m_EditorClassIdentifier: 
+  effectName: Firebolt
+  effectDescription: 
+  cooldownTime: 1
   projectilePrefab: {fileID: 6482772738607379157, guid: 923f2eb3079c4e94f8ab25656c590197, type: 3}
-  projectileName: Test Projectile
-  projectileMaxDistance: 50
-  projectileSpeed: 35
-  projectileDamage: 5
-  isAreaEffect: 0
-  areaEffectRadius: 0

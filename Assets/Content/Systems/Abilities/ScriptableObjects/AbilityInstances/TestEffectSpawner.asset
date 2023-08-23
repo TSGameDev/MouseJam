@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b78b44001915114fa8d346a32a7cbef, type: 3}
   m_Name: TestEffectSpawner
   m_EditorClassIdentifier: 
-  distanceFromPlayer: 15
-  effectPrefab: {fileID: 3941608682264877404, guid: c15597e49c8491542afc960ffac86de2, type: 3}
   effectName: Gravity Well
+  effectDescription: 
+  cooldownTime: 10
+  effectPrefab: {fileID: 3941608682264877404, guid: c15597e49c8491542afc960ffac86de2, type: 3}
+  distanceFromPlayer: 15

@@ -25,6 +25,7 @@ public struct InstanceEntityStats
     public int maxAirJumps;
     public float downwardGravitityMuliplier;
     public float upwardGravitiyMuliplier;
+    public float cooldownReduction;
 
     public InstanceEntityStats(EntityStats _BaseStats)
     {
@@ -37,6 +38,7 @@ public struct InstanceEntityStats
         maxAirJumps = _BaseStats.GetAirJumps();
         downwardGravitityMuliplier = _BaseStats.GetDownwardGravityMulipliter();
         upwardGravitiyMuliplier = _BaseStats.GetUpwardGravityMulipliter();
+        cooldownReduction = _BaseStats.GetCooldownReduction();
     }
 }
 
@@ -66,4 +68,7 @@ public class EntityStats : ScriptableObject
 
     [SerializeField][Range(1, 5)] private float baseUpwardGravityMultiplier;
     public float GetUpwardGravityMulipliter() => baseUpwardGravityMultiplier;
+
+    [SerializeField][Range(0, 100)] private float baseCooldownReduction;
+    public float GetCooldownReduction() => baseCooldownReduction;
 }

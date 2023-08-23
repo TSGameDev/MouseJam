@@ -5,9 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Effect Spawner", menuName = "Abilities/New Effect Spawner")]
 public class SpawnEffectAtLocation : AbilityCore
 {
-    [SerializeField] private float distanceFromPlayer;
     [SerializeField] private GameObject effectPrefab;
-    [SerializeField] private string effectName;
+    [SerializeField] private float distanceFromPlayer;
 
     private int NUMBER_OF_EFFECTS = 10;
 

@@ -10,6 +10,7 @@ public class Stats : MonoBehaviour, IDamagable, IEffectable
 
     private Movement _MovementComponent;
     private Jump _JumpComponent;
+    private AbilityCache _AbilityCache;
 
     private InstanceEntityStats _InstanceStats;
 
@@ -17,6 +18,7 @@ public class Stats : MonoBehaviour, IDamagable, IEffectable
     {
         _MovementComponent = GetComponent<Movement>();
         _JumpComponent = GetComponent<Jump>();
+        _AbilityCache = GetComponent<AbilityCache>();
     }
 
     private void Start()
@@ -24,6 +26,7 @@ public class Stats : MonoBehaviour, IDamagable, IEffectable
         _InstanceStats = new InstanceEntityStats(baseStats);
         _MovementComponent.SetUpDependancies(_InstanceStats);
         _JumpComponent.SetUpDependancies(_InstanceStats);
+        _AbilityCache.SetupDependancies(_InstanceStats);
     }
 
     public void Death()

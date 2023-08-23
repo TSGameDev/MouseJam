@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Teleport Ability", menuName = "Abilities/New Teleport Ability")]
 public class TeleportAbility : AbilityCore
 {
-    [SerializeField] private string abilityName;
     [SerializeField] private float teleportDistance;
     [SerializeField] private AbilityCore[] BeginTeleport;
     [SerializeField] private AbilityCore[] EndTeleport;

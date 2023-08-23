@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c59c9346d009bd4d97259c5d83152e4, type: 3}
   m_Name: TestProjectileAOE
   m_EditorClassIdentifier: 
+  effectName: Fireball
+  effectDescription: 
+  cooldownTime: 5
   projectilePrefab: {fileID: 6482772738607379157, guid: d99e5b9f58d87e74893f970d75c727f1, type: 3}
-  projectileName: Test Projectile AOE
