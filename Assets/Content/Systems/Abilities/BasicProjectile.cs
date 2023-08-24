@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BasicProjectile : MonoBehaviour, IObjectPoolItem
 {
+    [SerializeField] private GameObject hitEffect;
     [SerializeField] private float projectileMaxDistance;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private int projectileDamage;
@@ -11,10 +12,18 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
     [SerializeField] private float areaEffectRadius;
     [SerializeField] private LayerMask enemyLayer;
 
+    private string objectPoolHitEffectName;
     private float _ProjectileTravelDistance = 0f;
     private Vector3 _MovementDir;
 
     public GameObject GetGameObject() => gameObject;
+
+    private void Start()
+    {
+        objectPoolHitEffectName = gameObject.name + " Hit Effect";
+        if(!ObjectPool.CheckObjectPool(objectPoolHitEffectName))
+            ObjectPool.CreateObjectPool(objectPoolHitEffectName, hitEffect.GetComponent<IObjectPoolItem>(), 5);
+    }
 
     private void Update()
     {
@@ -40,7 +49,7 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
             IDamagable _TargetDamamge = enemy.gameObject.GetComponent<IDamagable>();
             _TargetDamamge?.Damage(projectileDamage);
         }
-        // Spawn AOE effect
+        ObjectPool.SpawnItem(objectPoolHitEffectName, new ObjectPoolItemData(transform.position));
         gameObject.SetActive(false);
     }
 
@@ -64,7 +73,7 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
 
         IDamagable _TargetDamage = collision.gameObject.GetComponent<IDamagable>();
         _TargetDamage?.Damage(projectileDamage);
-        //spawn hit effect
+        ObjectPool.SpawnItem(objectPoolHitEffectName, new ObjectPoolItemData(transform.position));
         gameObject.SetActive(false);
     }
 }

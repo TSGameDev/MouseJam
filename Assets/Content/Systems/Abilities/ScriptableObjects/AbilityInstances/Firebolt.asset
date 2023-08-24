@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c59c9346d009bd4d97259c5d83152e4, type: 3}
+  m_Name: Firebolt
+  m_EditorClassIdentifier: 
+  effectName: Firebolt
+  effectDescription: Mouse casts a small firebolt, burning and charing the first
+    enemy hit.
+  cooldownTime: 0.2
+  projectilePrefab: {fileID: 2922142132804065525, guid: 0fa24f1632181834db0558d9c544c835, type: 3}

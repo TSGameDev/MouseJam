@@ -271,13 +271,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controls: {fileID: 11400000, guid: ac2f29dc6e7a9c844a021a4bf1d54743, type: 2}
   projectileFirePoint: {fileID: 2108551082873992448}
-  normalAtack: {fileID: 11400000, guid: a66d2afdc2717c64ab3d44c9c7dda2f8, type: 2}
+  normalAtack: {fileID: 11400000, guid: 98b0074418b82c240bc8b812e3ac44e4, type: 2}
   isNormalProjectile: 1
-  Ability1: {fileID: 11400000, guid: ba4a852897f15dc47a29f07f79fc9c7c, type: 2}
+  Ability1: {fileID: 11400000, guid: e64ef3b4ce2456041b68e095a799dae0, type: 2}
   isAbility1Projectile: 1
-  Ability2: {fileID: 11400000, guid: 887f9c1d62aaae14a81632718632646d, type: 2}
+  Ability2: {fileID: 11400000, guid: b5a84a2b989768647944cd5a47a9525f, type: 2}
   isAbility2Projectile: 0
-  Ability3: {fileID: 11400000, guid: b05532747ae9d8d4e8d1d3259a8ad66b, type: 2}
+  Ability3: {fileID: 11400000, guid: d51523946732d2f44a239d0728dc0965, type: 2}
   isAbility3Projectile: 0
 --- !u!1 &8412661460353436802
 GameObject:

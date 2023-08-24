@@ -7,7 +7,7 @@ public static class ObjectPool
     private static Dictionary<string, Queue<IObjectPoolItem>> _ObjectPoolMain = new();
     private static Transform _ObjectPoolsParent;
 
-    private static bool CheckObjectPool(string _ObjectPoolKey) => _ObjectPoolMain.ContainsKey(_ObjectPoolKey);
+    public static bool CheckObjectPool(string _ObjectPoolKey) => _ObjectPoolMain.ContainsKey(_ObjectPoolKey);
 
     public static Queue<IObjectPoolItem> CreateObjectPool(string _ObjectPoolKey, IObjectPoolItem _Object, int _PoolAmount)
     {
