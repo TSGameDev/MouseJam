@@ -35,6 +35,11 @@ public class PlayerControlsSO : InputManagerBase
         return _PlayerActions.Game.FallThrough.WasPerformedThisFrame();
     }
 
+    public override bool RetrievePause()
+    {
+        return _PlayerActions.Game.Pause.WasPerformedThisFrame();
+    }
+
     public override Vector2 RetrieveMousePos()
     {
         return _PlayerActions.Game.MousePos.ReadValue<Vector2>();

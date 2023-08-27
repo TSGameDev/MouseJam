@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 public class SpawnProjectileAbility : AbilityCore
 {
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private AudioClip projectileSpawnSound;
 
     private int NUMBER_OF_OBJECTPOOLED_PROJECTILES = 20;
 
@@ -18,5 +19,6 @@ public class SpawnProjectileAbility : AbilityCore
     public override void Perform(Transform _SpawnTrans, Vector3 _CharacterLookDir)
     {
         ObjectPool.SpawnItem(effectName, new ObjectPoolItemData(_SpawnTrans.position, _CharacterLookDir));
+        AudioManager.Instance.PlayOneShot(projectileSpawnSound);
     }
 }

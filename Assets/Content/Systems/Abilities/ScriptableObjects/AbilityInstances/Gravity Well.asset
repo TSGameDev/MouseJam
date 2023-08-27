@@ -17,4 +17,5 @@ MonoBehaviour:
     pulling enemies into its centre.
   cooldownTime: 5
   effectPrefab: {fileID: 8738076208535922945, guid: 48064a08e401b4149b08528fc49849fe, type: 3}
-  distanceFromPlayer: 20
+  effectStartSound: {fileID: 8300000, guid: ffedde1e3d3e80149a7649dbee482e1d, type: 3}
+  distanceFromPlayer: 15

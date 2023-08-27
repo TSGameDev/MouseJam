@@ -21,7 +21,7 @@ public class GroundCheck : MonoBehaviour
 
     private void RetrieveFriction(Collision2D collision)
     {
-        PhysicsMaterial2D _CollisionPhysicsMat = collision.rigidbody.sharedMaterial;
+        PhysicsMaterial2D _CollisionPhysicsMat = collision.rigidbody?.sharedMaterial;
         _Friction = _CollisionPhysicsMat != null ? _CollisionPhysicsMat.friction : 0f;
     }
 

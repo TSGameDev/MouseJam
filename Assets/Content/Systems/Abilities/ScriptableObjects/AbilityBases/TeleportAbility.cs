@@ -6,7 +6,9 @@ using UnityEngine;
 public class TeleportAbility : AbilityCore
 {
     [SerializeField] private GameObject teleportEffect;
+    [SerializeField] private AudioClip teleportSound;
     [SerializeField] private float teleportDistance;
+    [SerializeField] private LayerMask terrainLayerMask;
     [SerializeField] private AbilityCore[] BeginTeleport;
     [SerializeField] private AbilityCore[] EndTeleport;
 
@@ -27,7 +29,17 @@ public class TeleportAbility : AbilityCore
         }
 
         ObjectPool.SpawnItem(effectName, new ObjectPoolItemData(_SpawnTransform.position));
-        _SpawnTransform.position += _CharacterLookDir * teleportDistance;
+
+        RaycastHit2D hit = Physics2D.Raycast(_SpawnTransform.position, _CharacterLookDir, teleportDistance, terrainLayerMask);
+        if(hit.collider != null)
+        {
+            _SpawnTransform.position = hit.point - (hit.normal * 0.5f);
+        }
+        else
+            _SpawnTransform.position += _CharacterLookDir * teleportDistance;
+
+
+        AudioManager.Instance.PlayOneShot(teleportSound);
         ObjectPool.SpawnItem(effectName, new ObjectPoolItemData(_SpawnTransform.position));
 
         if (EndTeleport.Length > 0)

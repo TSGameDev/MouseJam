@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpawnEffectAtLocation : AbilityCore
 {
     [SerializeField] private GameObject effectPrefab;
+    [SerializeField] private AudioClip effectStartSound;
     [SerializeField] private float distanceFromPlayer;
 
     private int NUMBER_OF_EFFECTS = 10;
@@ -18,6 +19,7 @@ public class SpawnEffectAtLocation : AbilityCore
     public override void Perform(Transform _SpawnTransform, Vector3 _CharacterLookDir)
     {
         Vector3 _EffectSpawnPos = _SpawnTransform.position + (_SpawnTransform.right * distanceFromPlayer);
+        AudioManager.Instance.PlayOneShot(effectStartSound);
         ObjectPool.SpawnItem(effectName, new ObjectPoolItemData(_EffectSpawnPos));
     }
 }

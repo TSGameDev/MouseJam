@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitEffect: {fileID: 2830017838419957864, guid: 8d48da72f4b50f841bfc733a58b8f119, type: 3}
+  hitEffectClip: {fileID: 8300000, guid: b41377350b2d7fd46bb58540c646f153, type: 3}
   projectileMaxDistance: 25
   projectileSpeed: 20
   projectileDamage: 10

@@ -16,6 +16,10 @@ MonoBehaviour:
   effectDescription: Mouse teleports a short distance in the direction she is facing.
   cooldownTime: 5
   teleportEffect: {fileID: 227258838208885024, guid: a8de2f2c81081c94db6971b960d1b0c1, type: 3}
+  teleportSound: {fileID: 8300000, guid: bfdb3cc218bb1a749ab10e8f9b215e02, type: 3}
   teleportDistance: 15
+  terrainLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
   BeginTeleport: []
   EndTeleport: []

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BasicProjectile : MonoBehaviour, IObjectPoolItem
 {
     [SerializeField] private GameObject hitEffect;
+    [SerializeField] private AudioClip hitEffectClip;
     [SerializeField] private float projectileMaxDistance;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private int projectileDamage;
@@ -50,6 +51,7 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
             _TargetDamamge?.Damage(projectileDamage);
         }
         ObjectPool.SpawnItem(objectPoolHitEffectName, new ObjectPoolItemData(transform.position));
+        AudioManager.Instance.PlayOneShot(hitEffectClip);
         gameObject.SetActive(false);
     }
 
@@ -74,6 +76,7 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
         IDamagable _TargetDamage = collision.gameObject.GetComponent<IDamagable>();
         _TargetDamage?.Damage(projectileDamage);
         ObjectPool.SpawnItem(objectPoolHitEffectName, new ObjectPoolItemData(transform.position));
+        AudioManager.Instance.PlayOneShot(hitEffectClip);
         gameObject.SetActive(false);
     }
 }

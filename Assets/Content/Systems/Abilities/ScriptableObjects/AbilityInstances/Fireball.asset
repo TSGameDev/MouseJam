@@ -17,3 +17,4 @@ MonoBehaviour:
     of its travel.
   cooldownTime: 3
   projectilePrefab: {fileID: 5084468122261081932, guid: 19fadfcfca9d188489ca0b211fd9d887, type: 3}
+  projectileSpawnSound: {fileID: 8300000, guid: 80df227513bb7744485c5009aa3ea637, type: 3}

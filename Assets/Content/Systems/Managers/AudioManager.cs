@@ -24,6 +24,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI soundEffectVolumeTxt;
     [SerializeField] private TextMeshProUGUI musicVolumeTxt;
 
+    [Header("UI Event Sound")]
+    [SerializeField] private AudioClip uiHoverSound;
+    [SerializeField] private AudioClip uiCancel;
+    [SerializeField] private AudioClip uiConfirm;
+
     public void SetGlobalMusicClip(AudioClip _MusicClip)
     {
         if (globalMusicSource == null)
@@ -35,12 +40,12 @@ public class AudioManager : MonoBehaviour
 
     #region Setup
 
-    private AudioManager _instance;
+    public static AudioManager Instance;
     private void Awake()
     {
-        if (_instance == null)
+        if (Instance == null)
         {
-            _instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -56,6 +61,10 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     #region Audio Source Functions
+
+    public void PlayerUIHover() => PlayOneShot(globalAudioSource, uiHoverSound);
+    public void PlayerUICancel() => PlayOneShot(globalAudioSource, uiCancel);
+    public void PlayerUIConfirm() => PlayOneShot(globalAudioSource, uiConfirm);
 
     public void SetAndPlay(AudioSource _AudioSource, AudioClip _AudioClip)
     {
@@ -86,6 +95,7 @@ public class AudioManager : MonoBehaviour
     {
         mainAudioMixer.SetFloat(masterMixerName, masterMixerVolumeSlider.value);
     }
+    
     public void SetSoundEffectVolumeMixer()
     {
         mainAudioMixer.SetFloat(soundEffectMixerName, soundEffectMixerVolumeSlider.value);

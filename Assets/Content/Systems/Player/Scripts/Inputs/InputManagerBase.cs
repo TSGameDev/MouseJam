@@ -8,6 +8,7 @@ public abstract class InputManagerBase : ScriptableObject
     public abstract float RetrieveHorizontalMovement();
     public abstract bool RetrieveJump();
     public abstract bool RetrieveFallThrough();
+    public abstract bool RetrievePause();
     public abstract Vector2 RetrieveMousePos();
     public abstract bool RetrieveNormalAttack();
     public abstract bool RetrieveAbility1();

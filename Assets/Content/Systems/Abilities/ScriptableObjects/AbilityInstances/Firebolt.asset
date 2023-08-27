@@ -17,3 +17,4 @@ MonoBehaviour:
     enemy hit.
   cooldownTime: 0.2
   projectilePrefab: {fileID: 2922142132804065525, guid: 0fa24f1632181834db0558d9c544c835, type: 3}
+  projectileSpawnSound: {fileID: 8300000, guid: b125c3868fddfa54fa8ce4060182676e, type: 3}

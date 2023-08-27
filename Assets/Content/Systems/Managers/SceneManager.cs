@@ -3,7 +3,6 @@ using UnityEngine;
 public class SceneManager : MonoBehaviour
 {
     private static SceneManager instance;
-
     private void Awake()
     {
         if(instance == null)

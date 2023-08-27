@@ -98,6 +98,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""e2f3a92c-38b2-4a0d-b58a-cfa2bd4119c5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -221,6 +230,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""action"": ""Ability 3"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5c9a001-e30f-4868-8f15-63f152e82c97"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -237,6 +257,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_Game_Ability1 = m_Game.FindAction("Ability 1", throwIfNotFound: true);
         m_Game_Ability2 = m_Game.FindAction("Ability 2", throwIfNotFound: true);
         m_Game_Ability3 = m_Game.FindAction("Ability 3", throwIfNotFound: true);
+        m_Game_Pause = m_Game.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -306,6 +327,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Ability1;
     private readonly InputAction m_Game_Ability2;
     private readonly InputAction m_Game_Ability3;
+    private readonly InputAction m_Game_Pause;
     public struct GameActions
     {
         private @PlayerActions m_Wrapper;
@@ -318,6 +340,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         public InputAction @Ability1 => m_Wrapper.m_Game_Ability1;
         public InputAction @Ability2 => m_Wrapper.m_Game_Ability2;
         public InputAction @Ability3 => m_Wrapper.m_Game_Ability3;
+        public InputAction @Pause => m_Wrapper.m_Game_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -351,6 +374,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Ability3.started += instance.OnAbility3;
             @Ability3.performed += instance.OnAbility3;
             @Ability3.canceled += instance.OnAbility3;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -379,6 +405,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Ability3.started -= instance.OnAbility3;
             @Ability3.performed -= instance.OnAbility3;
             @Ability3.canceled -= instance.OnAbility3;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -406,5 +435,6 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         void OnAbility1(InputAction.CallbackContext context);
         void OnAbility2(InputAction.CallbackContext context);
         void OnAbility3(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
