@@ -73,6 +73,9 @@ MonoBehaviour:
   masterVolumeTxt: {fileID: 0}
   soundEffectVolumeTxt: {fileID: 0}
   musicVolumeTxt: {fileID: 0}
+  uiHoverSound: {fileID: 8300000, guid: 183ed8c5b3a1ff2409b917dbbbf1ccdd, type: 3}
+  uiCancel: {fileID: 8300000, guid: 53f4465294343d645ad3f092d2e68bae, type: 3}
+  uiConfirm: {fileID: 8300000, guid: 1a7ff6e7f2fa16046ad4d224caeef39f, type: 3}
 --- !u!82 &4805070451956636827
 AudioSource:
   m_ObjectHideFlags: 0

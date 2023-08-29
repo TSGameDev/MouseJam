@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UICooldownManager : MonoBehaviour
+public class UIHUDManager : MonoBehaviour
 {
     [SerializeField] private Slider normalAttackCooldownSlider;
     [SerializeField] private TextMeshProUGUI normalAttackCooldownTxt;
@@ -12,8 +12,10 @@ public class UICooldownManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ability2CooldownTxt;
     [SerializeField] private Slider ability3CooldownSlider;
     [SerializeField] private TextMeshProUGUI ability3CooldownTxt;
+    [SerializeField] private Slider healthSlider;
+    [SerializeField] private TextMeshProUGUI healthSliderTxt;
 
-    public static UICooldownManager Instance;
+    public static UIHUDManager Instance;
     private void Awake()
     {
         if (Instance == null)
@@ -35,6 +37,14 @@ public class UICooldownManager : MonoBehaviour
 
         ability3CooldownSlider.minValue = 0;
         ability3CooldownSlider.maxValue = _Ability3.GetAbilityCooldown();
+    }
+
+    public void SetUpHealthUI(int _MaxHealth, int _CurrentHeatlh, int _MinHealth = 0)
+    {
+        healthSlider.minValue = _MinHealth;
+        healthSlider.maxValue = _MaxHealth;
+        healthSlider.value = _CurrentHeatlh;
+        healthSliderTxt.text = _CurrentHeatlh.ToString();
     }
 
     public void UpdateNormalAttackUI(bool _AttackOnCooldown, float _AttackCooldown = 0)
@@ -65,4 +75,9 @@ public class UICooldownManager : MonoBehaviour
         ability3CooldownTxt.text = Mathf.Ceil(_AttackCooldown).ToString();
     }
 
+    public void UpdateHealthSlider(int _NewHealthValue)
+    {
+        healthSlider.value = _NewHealthValue;
+        healthSliderTxt.text = _NewHealthValue.ToString();
+    }
 }

@@ -24,6 +24,9 @@ public class Stats : MonoBehaviour, IDamagable, IEffectable
     private void Start()
     {
         _InstanceStats = new InstanceEntityStats(baseStats);
+
+        UIHUDManager.Instance.SetUpHealthUI(_InstanceStats.maxHealth, _InstanceStats.Health);
+
         _MovementComponent.SetUpDependancies(_InstanceStats);
         _JumpComponent.SetUpDependancies(_InstanceStats);
         _AbilityCache.SetupDependancies(_InstanceStats);
@@ -39,6 +42,9 @@ public class Stats : MonoBehaviour, IDamagable, IEffectable
     public void Damage(int _Damage)
     {
         _InstanceStats.Health -= _Damage;
+
+        UIHUDManager.Instance.UpdateHealthSlider(_InstanceStats.Health);
+
         if(_InstanceStats.Health <= 0)
             Death();
     }

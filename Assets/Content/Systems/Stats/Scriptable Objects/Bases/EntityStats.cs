@@ -4,7 +4,8 @@ using UnityEngine;
 
 public struct InstanceEntityStats
 {
-    private int maxHealth;
+    public int maxHealth;
+
     private int health;
     public int Health
     {
@@ -26,6 +27,9 @@ public struct InstanceEntityStats
     public float downwardGravitityMuliplier;
     public float upwardGravitiyMuliplier;
     public float cooldownReduction;
+    public float attackRange;
+    public float timeBetterAttacks;
+    public int attackDamage;
 
     public InstanceEntityStats(EntityStats _BaseStats)
     {
@@ -39,6 +43,9 @@ public struct InstanceEntityStats
         downwardGravitityMuliplier = _BaseStats.GetDownwardGravityMulipliter();
         upwardGravitiyMuliplier = _BaseStats.GetUpwardGravityMulipliter();
         cooldownReduction = _BaseStats.GetCooldownReduction();
+        attackRange = _BaseStats.GetAttackRange();
+        timeBetterAttacks = _BaseStats.GetTimeBetweenAttacks();
+        attackDamage = _BaseStats.GetAttackDamage();
     }
 }
 
@@ -71,4 +78,13 @@ public class EntityStats : ScriptableObject
 
     [SerializeField][Range(0, 100)] private float baseCooldownReduction;
     public float GetCooldownReduction() => baseCooldownReduction;
+
+    [SerializeField][Range(0, 10)] private float baseAttackRange;
+    public float GetAttackRange() => baseAttackRange;
+
+    [SerializeField][Range(0, 10)] private float timeBetweenAttacks;
+    public float GetTimeBetweenAttacks() => timeBetweenAttacks;
+
+    [SerializeField][Range(0, 100)] private int attackDamage;
+    public int GetAttackDamage() => attackDamage;
 }

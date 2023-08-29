@@ -47,7 +47,7 @@ public class AbilityCache : MonoBehaviour
         Ability2?.SetUp();
         Ability3?.SetUp();
 
-        UICooldownManager.Instance?.SetUpAbilityUI(normalAtack, Ability1, Ability2, Ability3);
+        UIHUDManager.Instance?.SetUpAbilityUI(normalAtack, Ability1, Ability2, Ability3);
     }
 
     private void Update()
@@ -85,7 +85,7 @@ public class AbilityCache : MonoBehaviour
         if(_CurrentNormalAttackCooldown >= 0)
         {
             _CurrentNormalAttackCooldown -= 1 * Time.deltaTime;
-            UICooldownManager.Instance?.UpdateNormalAttackUI(_NormalAttackOnCooldown, _CurrentNormalAttackCooldown);
+            UIHUDManager.Instance?.UpdateNormalAttackUI(_NormalAttackOnCooldown, _CurrentNormalAttackCooldown);
         }
         else
         {
@@ -96,7 +96,7 @@ public class AbilityCache : MonoBehaviour
         if (_CurrentAbility1Cooldown >= 0)
         {
             _CurrentAbility1Cooldown -= 1 * Time.deltaTime;
-            UICooldownManager.Instance?.UpdateAbility1UI(_Ability1OnCooldown, _CurrentAbility1Cooldown);
+            UIHUDManager.Instance?.UpdateAbility1UI(_Ability1OnCooldown, _CurrentAbility1Cooldown);
         }
         else
         {
@@ -107,7 +107,7 @@ public class AbilityCache : MonoBehaviour
         if (_CurrentAbility2Cooldown >= 0)
         {
             _CurrentAbility2Cooldown -= 1 * Time.deltaTime;
-            UICooldownManager.Instance?.UpdateAbility2UI(_Ability2OnCooldown, _CurrentAbility2Cooldown);
+            UIHUDManager.Instance?.UpdateAbility2UI(_Ability2OnCooldown, _CurrentAbility2Cooldown);
         }
         else
         {
@@ -118,7 +118,7 @@ public class AbilityCache : MonoBehaviour
         if (_CurrentAbility3Cooldown >= 0)
         {
             _CurrentAbility3Cooldown -= 1 * Time.deltaTime;
-            UICooldownManager.Instance?.UpdateAbility3UI(_Ability3OnCooldown, _CurrentAbility3Cooldown);
+            UIHUDManager.Instance?.UpdateAbility3UI(_Ability3OnCooldown, _CurrentAbility3Cooldown);
         }
         else
         {
