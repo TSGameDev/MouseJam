@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIEntity : MonoBehaviour, IDamagable
+public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
 {
     [SerializeField] GameObject player;
     [SerializeField] EntityStats entityStats;
@@ -11,16 +11,21 @@ public class AIEntity : MonoBehaviour, IDamagable
     public InstanceEntityStats GetInstanceStats() => _InstanceStats;
 
     private StateMachine _StateMachine = new();
+    private Animator _Animator;
+    private Rigidbody2D _Rigidbody;
+    private ZoneSpawner _ZoneSpawner;
 
     public readonly int ANIMHASH_WALK = Animator.StringToHash("Idle");
 
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         _InstanceStats = new InstanceEntityStats(entityStats);
 
-        Animator _Animator = GetComponent<Animator>();
-        Rigidbody2D _Rigidbody = GetComponent<Rigidbody2D>();
+        _Animator = GetComponent<Animator>();
+        _Rigidbody = GetComponent<Rigidbody2D>();
         
         _StateMachine.CurrentState = new TrackPlayer(gameObject, _StateMachine, _Animator, _Rigidbody, this, player);
     }
@@ -41,10 +46,28 @@ public class AIEntity : MonoBehaviour, IDamagable
     {
         _InstanceStats.Health -= _Damage;
         if (_InstanceStats.Health <= 0)
-            Destroy(gameObject);
-
-        //Update to just despawn since spawning the enemies will be object pooled.
+        {
+            _ZoneSpawner.RemoveEnemyFromZone(gameObject);
+            gameObject.SetActive(false);
+        }
     }
+
+    #endregion
+
+    #region IObjectPool
+
+    public GameObject GetGameObject() => gameObject;
+
+    public void Reset(ObjectPoolItemData _NextItemResetData)
+    {
+        _InstanceStats = new InstanceEntityStats(entityStats);
+        _StateMachine.CurrentState = new TrackPlayer(gameObject, _StateMachine, _Animator, _Rigidbody, this, player);
+        transform.position = _NextItemResetData.spawnPosition;
+        _ZoneSpawner = _NextItemResetData.spawner.GetComponent<ZoneSpawner>();
+        gameObject.SetActive(true);
+    }
+
+    public bool IsActive() => gameObject.activeSelf;
 
     #endregion
 }

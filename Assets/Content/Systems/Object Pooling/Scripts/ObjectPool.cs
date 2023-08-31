@@ -37,7 +37,7 @@ public static class ObjectPool
         }
     }
 
-    public static void SpawnItem(string _ObjectPoolKey, ObjectPoolItemData _NextItemResetData)
+    public static GameObject SpawnItem(string _ObjectPoolKey, ObjectPoolItemData _NextItemResetData)
     {
         Queue<IObjectPoolItem> _ItemObjectPool;
         if (CheckObjectPool(_ObjectPoolKey))
@@ -47,12 +47,20 @@ public static class ObjectPool
                 throw new Exception("Couldn't collect Object Pool");
 
             IObjectPoolItem _NextItem = _ItemObjectPool.Dequeue();
-            _NextItem.Reset(_NextItemResetData);
-            _ItemObjectPool.Enqueue(_NextItem);
+            if(_NextItem.IsActive())
+            {
+                _ItemObjectPool.Enqueue(_NextItem);
+                Debug.Log($"Spawn attempt for object pool item {_ObjectPoolKey} was cancelled due to no enough items");
+                return null;
+            }
+            else
+            {
+                _NextItem.Reset(_NextItemResetData);
+                _ItemObjectPool.Enqueue(_NextItem);
+                return _NextItem.GetGameObject();
+            }
         } 
         else
-        {
             throw new Exception("Object Pool with this key doesn't exists, please create one first.");
-        }
     }
 }

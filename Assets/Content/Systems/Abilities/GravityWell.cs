@@ -46,4 +46,6 @@ public class GravityWell : MonoBehaviour, IObjectPoolItem
         _CurrentTime = 0f;
         gameObject.SetActive(true);
     }
+
+    public bool IsActive() => gameObject.activeSelf;
 }

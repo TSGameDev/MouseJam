@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4805070451956636827}
   - component: {fileID: 3840633546254441391}
   - component: {fileID: 608581016135288369}
+  - component: {fileID: 2530540912528467119}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -288,3 +289,22 @@ MonoBehaviour:
   ability2CooldownTxt: {fileID: 0}
   ability3CooldownSlider: {fileID: 0}
   ability3CooldownTxt: {fileID: 0}
+  healthSlider: {fileID: 0}
+  healthSliderTxt: {fileID: 0}
+--- !u!114 &2530540912528467119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2829940782627842220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4d1b463fa941d48bc42e920c2661f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoneSpawners:
+  - {fileID: 0}
+  enemyList:
+  - {fileID: 3401187868091417896, guid: 85d17740869b735469c0e22a8dcf9f54, type: 3}
+  maxNumberOfEnemies: 10

@@ -23,4 +23,6 @@ public class Blink : MonoBehaviour, IObjectPoolItem
         transform.position = _NextItemResetData.spawnPosition;
         gameObject.SetActive(true);
     }
+
+    public bool IsActive() => gameObject.activeSelf;
 }

@@ -36,7 +36,6 @@ public class Stats : MonoBehaviour, IDamagable, IEffectable
     {
         //Spawn Death Effect
         //trigger death event
-        gameObject.SetActive(false);
     }
 
     public void Damage(int _Damage)

@@ -79,4 +79,6 @@ public class BasicProjectile : MonoBehaviour, IObjectPoolItem
         AudioManager.Instance.PlayOneShot(hitEffectClip);
         gameObject.SetActive(false);
     }
+
+    public bool IsActive() => gameObject.activeSelf;
 }
