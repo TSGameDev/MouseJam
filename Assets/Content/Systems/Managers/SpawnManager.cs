@@ -46,6 +46,9 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnNewEnemy()
     {
+        if (zoneSpawners.Count <= 0)
+            return;
+
         int _RandomNum = Random.Range(0, enemyList.Count);
         GameObject _NewEnemy = enemyList[_RandomNum];
 

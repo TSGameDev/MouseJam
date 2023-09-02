@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Poison Effect", menuName = "TSGameDev/Status Effects/New Poison Effect")]
+[CreateAssetMenu(fileName = "New Poison Effect", menuName = "Status Effects/New Poison Effect")]
 public class PoisonStatusEffectSO : StatusEffectSOBase
 {
     [Tooltip("The damage deal every tick, if the poison is set to instant it does this damange only once")]

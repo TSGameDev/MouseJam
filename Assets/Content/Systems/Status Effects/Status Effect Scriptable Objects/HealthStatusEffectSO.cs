@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Heal Effect", menuName = "TSGameDev/Status Effects/New Heal Effect")]
+[CreateAssetMenu(fileName = "New Heal Effect", menuName = "Status Effects/New Heal Effect")]
 public class HealthStatusEffectSO : StatusEffectSOBase
 {
     [SerializeField] private int healthGain = 10;

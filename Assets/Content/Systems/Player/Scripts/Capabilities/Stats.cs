@@ -60,6 +60,8 @@ public class Stats : MonoBehaviour, IDamagable, IEffectable
         _InstanceStats = _NewStats;
         _MovementComponent.SetUpDependancies(_InstanceStats);
         _JumpComponent.SetUpDependancies(_InstanceStats);
+
+        UIHUDManager.Instance.SetUpHealthUI(_InstanceStats.maxHealth, _InstanceStats.Health);
     }
     
     public InstanceEntityStats GetStats() => _InstanceStats;

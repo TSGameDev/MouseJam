@@ -7,6 +7,8 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
     [SerializeField] GameObject player;
     [SerializeField] EntityStats entityStats;
 
+    [SerializeField] private int deathSouls;
+
     private InstanceEntityStats _InstanceStats;
     public InstanceEntityStats GetInstanceStats() => _InstanceStats;
 
@@ -14,6 +16,7 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
     private Animator _Animator;
     private Rigidbody2D _Rigidbody;
     private ZoneSpawner _ZoneSpawner;
+    private Currency _PlayerCurrency;
 
     public readonly int ANIMHASH_WALK = Animator.StringToHash("Idle");
 
@@ -21,6 +24,7 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        _PlayerCurrency = player.GetComponent<Currency>();
 
         _InstanceStats = new InstanceEntityStats(entityStats);
 
@@ -47,6 +51,7 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
         _InstanceStats.Health -= _Damage;
         if (_InstanceStats.Health <= 0)
         {
+            _PlayerCurrency.AddCurrency(deathSouls);
             _ZoneSpawner.RemoveEnemyFromZone(gameObject);
             gameObject.SetActive(false);
         }

@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: StoneChest
+  m_Controller: {fileID: 9100000, guid: da4a07c22ec9f2849802f23e0cbbea87, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 7f52d279f7a9ff74abf5f393eaab924c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ee6b6eb0d3b904a4a8810a97cb3d90be, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a42305418c8b97243933b06b67dfab62, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5558a93c8d1e8664cb4c3a618b1600e4, type: 2}
