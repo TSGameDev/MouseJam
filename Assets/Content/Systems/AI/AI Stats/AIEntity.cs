@@ -97,7 +97,7 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
 
     public void Death()
     {
-        //_PlayerCurrency?.AddCurrency(deathSouls);
+        _PlayerCurrency?.AddCurrency(deathSouls);
         _ZoneSpawner?.RemoveEnemyFromZone(gameObject);
         _Animator.SetBool(ANIMHASH_DEAD, true);
         _Animator.SetBool(ANIMHASH_MOVING, false);

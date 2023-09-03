@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   globalAudioSource: {fileID: 4805070451956636827}
   globalMusicSource: {fileID: 3840633546254441391}
-  musicClip: {fileID: 8300000, guid: b247f8f042dedc14c9d04d59f120604d, type: 3}
+  musicClip: {fileID: 8300000, guid: 25f60ec7afcb18a40a825e3fdcde1b6f, type: 3}
   mainAudioMixer: {fileID: 24100000, guid: 1d88ea513c5f5634abd0d21d5297f745, type: 2}
   masterMixerName: MasterVolume
   soundEffectMixerName: SoundEffectVolume
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2829940782627842220}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb4d1b463fa941d48bc42e920c2661f2, type: 3}
   m_Name: 

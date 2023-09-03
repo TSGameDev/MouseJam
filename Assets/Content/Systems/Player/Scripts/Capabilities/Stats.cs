@@ -5,6 +5,7 @@ using UnityEngine;
 public class Stats : MonoBehaviour, IDamagable, IEffectable
 {
     [SerializeField] private EntityStats baseStats;
+    [SerializeField] private GameObject DeathUI;
 
     private List<IStatusEffect> _ActivePassives = new();
 
@@ -34,8 +35,6 @@ public class Stats : MonoBehaviour, IDamagable, IEffectable
 
     public void Death()
     {
-        //Spawn Death Effect
-        //trigger death event
     }
 
     public void Damage(int _Damage)
