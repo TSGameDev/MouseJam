@@ -5,6 +5,8 @@ using UnityEngine;
 public class ZoneSpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> zoneSpawners = new List<GameObject>();
+    [SerializeField] private bool allowGroundEnemies = true;
+    public bool GetAllowGroundEnemies() => allowGroundEnemies; 
 
     private bool isInZone = false;
     public bool IsInZone { get { return isInZone; } }
@@ -47,7 +49,10 @@ public class ZoneSpawner : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             foreach(GameObject enemy in _ZoneSpawnedEnemies)
-                enemy.SetActive(false);
+            {
+                if(enemy != null)
+                    enemy.SetActive(false);
+            }
 
             _ZoneSpawnedEnemies.Clear();
 

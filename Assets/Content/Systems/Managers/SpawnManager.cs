@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private List<ZoneSpawner> zoneSpawners = new();
-    [SerializeField] private List<GameObject> enemyList = new();
+    [SerializeField] private List<GameObject> groundEnemyList = new();
+    [SerializeField] private List<GameObject> flyingEnemyList = new();
     [SerializeField] private int maxNumberOfEnemies = 10;
 
     private float _SpawnTimer = 5f;
@@ -49,21 +50,51 @@ public class SpawnManager : MonoBehaviour
         if (zoneSpawners.Count <= 0)
             return;
 
-        int _RandomNum = Random.Range(0, enemyList.Count);
-        GameObject _NewEnemy = enemyList[_RandomNum];
-
-        foreach(ZoneSpawner zone in zoneSpawners)
+        foreach (ZoneSpawner zone in zoneSpawners)
         {
             if (zone.IsInZone)
             {
-                zone.SpawnEnemy(_NewEnemy.name);
+                zone.SpawnEnemy(AssignedNewEnemy(zone).name);
+                return;
             }
         }
     }
 
+    private GameObject AssignedNewEnemy(ZoneSpawner zone)
+    {
+        int _RandomEnemy;
+        GameObject _NewEnemy = null;
+        if (zone.GetAllowGroundEnemies())
+        {
+            int _GroundOrFly = Random.Range(1, 3);
+            switch (_GroundOrFly)
+            {
+                case 1:
+                    _RandomEnemy = Random.Range(1, groundEnemyList.Count);
+                    _NewEnemy = groundEnemyList[_RandomEnemy];
+                    break;
+                case 2:
+                    _RandomEnemy = Random.Range(1, flyingEnemyList.Count);
+                    _NewEnemy = flyingEnemyList[_RandomEnemy];
+                    break;
+            }
+        }
+        else
+        {
+            _RandomEnemy = Random.Range(1, flyingEnemyList.Count);
+            _NewEnemy = flyingEnemyList[_RandomEnemy];
+        }
+        return _NewEnemy;
+    }
+
     private void SetupObjectPool()
     {
-        foreach (GameObject enemy in enemyList)
+        foreach (GameObject enemy in groundEnemyList)
+        {
+            ObjectPool.CreateObjectPool(enemy.name, enemy.GetComponent<IObjectPoolItem>(), maxNumberOfEnemies);
+        }
+
+        foreach (GameObject enemy in flyingEnemyList)
         {
             ObjectPool.CreateObjectPool(enemy.name, enemy.GetComponent<IObjectPoolItem>(), maxNumberOfEnemies);
         }

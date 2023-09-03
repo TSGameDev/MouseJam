@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EyeballMonster_AnimController
+  m_Controller: {fileID: 9100000, guid: 46782ccc22263c14090c9028f23d12c8, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5bb562b8aa68ac94085966da027d1cbd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2cfb38db17c553344832ed69cf132f93, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fa742284a98b56449aa53a67f8583392, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 462323f30a3f9ab4f879a0d53a5fb153, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b2e9da4714e52e74689313a29389accc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 62e0a861c47b8a14bb8d2bac1b3f5180, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 79b833a618cac3e4aa9aea1adc3bb96d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4d57c6f4cbb34ad44b75b9313efb7243, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a30661d1a722d5049bec010ae725c86b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 22a70892c4b8e9b4bbee3df3b5cd4204, type: 2}

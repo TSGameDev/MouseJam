@@ -416,6 +416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zone4
       objectReference: {fileID: 0}
+    - target: {fileID: 1395024729077909075, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
+      propertyPath: allowGroundEnemies
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1524717901552141370, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
       propertyPath: m_Size.x
       value: 66.06131
@@ -919,6 +923,10 @@ PrefabInstance:
     - target: {fileID: 989962748188489749, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
       propertyPath: m_Name
       value: Zone2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395024729077909075, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
+      propertyPath: allowGroundEnemies
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1524717901552141370, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
       propertyPath: m_Size.x
@@ -2024,6 +2032,125 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1728669138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1728669139}
+  - component: {fileID: 1728669140}
+  m_Layer: 0
+  m_Name: A* Grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1728669139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728669138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1875126406}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1728669140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728669138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAAIex6hUYcfAIAADUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMty2jAU/RVG68L4BYbuWoeQLpIwoZ1svBH2NdYgSx5JDpAM/94r2cYuXSHOfZ1zdOUvwoSuITNSbRTLn2UO5PuE2DP5NhmCT3CmByl27BP6nHeWm9ImUZfzRg2TiPu2TMsKjGLZD3HgNtlDsBGskKpa5wdIpDYa4YJyDRhS0thqgdDXhJzxZ7qyJRc8BbE9feJp5U2ueMxAGFCj1HAxC6PFfBmFXcl0PvPDeBVFXeE0mAXh3I+j5WI99RauSyMyTqsacitpaBYHXY/Yd2kCxXYZVlgmOWe6Y0rMpXZOJLTWDerEhJxRVO7o+TPLpwR2KI3VMS5/LQoNpjNG0csDU2hh25f8lK2vFdXHltkH5Y2jECwdq7bp83/xaUu6ULJ66uf6np1hSpYd3+glo9qMjB/DDyPqzqAT5Ue65/BegniRGyUbkWPQqMaWNhqCh+HvTVpSQnYc8JbqHdjUg+P9Pfe3bDVcnfpzwlm1t6FZ1AI7Lp3jbjlA4d38QsJudXTXAlHL4o+G3/Qw3rEu8MiUNhjqVApLby8bZVPJ2nlm1TQmkUqAgzvSNQjKzWWLbcz9Fd7FRmPvIo/UvqZueBfrH8ldiYOHfM+7C23l6XZZupSnZ9Dla2M4EzCQtoEX9CmRQrQbNvakL9s1qqDZqOzQsPzf1SJevodl7BVh7gdQhKvpfhHFK38/p0t8fTQG4naPCdRJ+bYl2tmDtyaG5gL3rP/ITDaK1m7bc0VPG/ZZyTFBJgq5yxSAeG1b3JiDwin4MPN1ztChHRjDhLtw8pUSLrMj5OltZuqkrs9G0XTokpKafUhjkZQk7rOSEgvflnmr4IPByQ7vm13J9S9QSwMEFAAACAgAAAAh7CqvYeVtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJBSlKqhblBmnGKoVFqmrGlbpKZibmlYZJpooWxiVmieapSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAAh7HqFRhx8AgAANQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7CqvYeVtAAAAeAAAAAkAJAAAAAAAAAAAAAAAyQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACBAwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 0
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 10
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
 --- !u!1001 &1823610700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23383,6 +23510,7 @@ Transform:
   m_Children:
   - {fileID: 516120898}
   - {fileID: 783419198}
+  - {fileID: 1728669139}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1889576794 stripped
@@ -23646,6 +23774,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zone1
       objectReference: {fileID: 0}
+    - target: {fileID: 1395024729077909075, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
+      propertyPath: allowGroundEnemies
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1524717901552141370, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
       propertyPath: m_Size.x
       value: 36.914814
@@ -23742,6 +23874,10 @@ PrefabInstance:
     - target: {fileID: 989962748188489749, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
       propertyPath: m_Name
       value: Zone3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1395024729077909075, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
+      propertyPath: allowGroundEnemies
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1524717901552141370, guid: abcf9c8f0480cfa44a15180e2846a1a3, type: 3}
       propertyPath: m_Size.x
@@ -23925,8 +24061,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 974825117}
     - target: {fileID: 2530540912528467119, guid: 27d464cd5a1759742bcb4897e275fe89, type: 3}
+      propertyPath: maxNumberOfEnemies
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2530540912528467119, guid: 27d464cd5a1759742bcb4897e275fe89, type: 3}
       propertyPath: enemyList.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2530540912528467119, guid: 27d464cd5a1759742bcb4897e275fe89, type: 3}
       propertyPath: enemyList.Array.data[0]

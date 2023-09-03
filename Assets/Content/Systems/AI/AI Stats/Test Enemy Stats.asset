@@ -22,5 +22,5 @@ MonoBehaviour:
   baseUpwardGravityMultiplier: 3
   baseCooldownReduction: 15
   baseAttackRange: 2
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 1
   attackDamage: 10

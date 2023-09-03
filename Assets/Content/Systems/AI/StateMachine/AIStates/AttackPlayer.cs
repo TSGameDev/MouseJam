@@ -4,22 +4,15 @@ using UnityEngine;
 
 public class AttackPlayer : State
 {
-    private GameObject _Player;
     private IDamagable _PlayerDamage;
 
     private float _CurrentTime;
 
-    public AttackPlayer(GameObject GameObject, StateMachine StateMachine, Animator Animator, Rigidbody2D RigidBody, AIEntity AIEntity, GameObject Player)
-        : base(GameObject, StateMachine, Animator, RigidBody, AIEntity)
-    {
-        _Player = Player;
-    }
+    public AttackPlayer(AIEntity AIEntity) : base(AIEntity) { }
 
     public override void Enter()
     {
-        Debug.Log("Enter Attacking State");
         _PlayerDamage = _Player.GetComponent<IDamagable>();
-        PerformAttack();
     }
 
     public override void Update()
@@ -36,7 +29,12 @@ public class AttackPlayer : State
 
         //Of distance is greater then attack range, begin tracking player/moving towards player
         if (_DisToPlayer >= _AIEntity.GetInstanceStats().attackRange)
-            _StateMachine.CurrentState = new TrackPlayer(_GameObject, _StateMachine, _Animator, _RigidBody, _AIEntity, _Player);
+        {
+            if (_AIEntity.GetIsFly())
+                _StateMachine.CurrentState = new TrackPlayerFly(_AIEntity);
+            else
+                _StateMachine.CurrentState = new TrackPlayer(_AIEntity);
+        }
     }
 
     private void AttackTimer()
@@ -52,7 +50,11 @@ public class AttackPlayer : State
 
     private void PerformAttack()
     {
-        Debug.Log("Attacking");
         _PlayerDamage?.Damage(_AIEntity.GetInstanceStats().attackDamage);
+
+        if (_AIEntity.GetIsSuicide())
+            _AIEntity.Death();
+        else
+            _Animator.SetTrigger(_AIEntity.ANIMHASH_ATTACK);
     }
 }
