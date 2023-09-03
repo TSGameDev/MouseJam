@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3482554304479017178}
   - component: {fileID: 4636882818257641178}
   - component: {fileID: 846299069638929728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VortexEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,9 @@ public abstract class InputManagerBase : ScriptableObject
     public abstract bool RetrievePause();
     public abstract Vector2 RetrieveMousePos();
     public abstract bool RetrieveNormalAttack();
+    public abstract bool RetrieveNormalAttackHeld();
     public abstract bool RetrieveAbility1();
     public abstract bool RetrieveAbility2();
     public abstract bool RetrieveAbility3();
+    public abstract bool RetrieveInteraction();
 }

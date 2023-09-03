@@ -70,18 +70,18 @@ public class SpawnManager : MonoBehaviour
             switch (_GroundOrFly)
             {
                 case 1:
-                    _RandomEnemy = Random.Range(1, groundEnemyList.Count);
+                    _RandomEnemy = Random.Range(0, groundEnemyList.Count);
                     _NewEnemy = groundEnemyList[_RandomEnemy];
                     break;
                 case 2:
-                    _RandomEnemy = Random.Range(1, flyingEnemyList.Count);
+                    _RandomEnemy = Random.Range(0, flyingEnemyList.Count);
                     _NewEnemy = flyingEnemyList[_RandomEnemy];
                     break;
             }
         }
         else
         {
-            _RandomEnemy = Random.Range(1, flyingEnemyList.Count);
+            _RandomEnemy = Random.Range(0, flyingEnemyList.Count);
             _NewEnemy = flyingEnemyList[_RandomEnemy];
         }
         return _NewEnemy;

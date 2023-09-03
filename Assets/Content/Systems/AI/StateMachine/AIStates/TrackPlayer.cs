@@ -10,6 +10,7 @@ public class TrackPlayer : State
 
     public override void Enter()
     {
+        _Animator.SetBool(_AIEntity.ANIMHASH_ATTACK, false);
         _Animator.SetBool(_AIEntity.ANIMHASH_MOVING, true);
     }
 
@@ -50,7 +51,7 @@ public class TrackPlayer : State
     private void CalculatePlayerTracking()
     {
         float _DisToPlayer = Vector2.Distance(
-            new Vector2(_GameObject.transform.position.x, _GameObject.transform.position.y),
+            new Vector2(_RigidBody.position.x, _RigidBody.position.y),
             new Vector2(_Player.transform.position.x, _Player.transform.position.y));
 
         if (_DisToPlayer < _AIEntity.GetInstanceStats().attackRange)

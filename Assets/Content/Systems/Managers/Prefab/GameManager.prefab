@@ -303,6 +303,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4d1b463fa941d48bc42e920c2661f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoneSpawners: []
-  enemyList: []
-  maxNumberOfEnemies: 10
+  zoneSpawners:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  groundEnemyList:
+  - {fileID: 3455231754637834315, guid: 47c445403858e3443b512c75c9c9496e, type: 3}
+  - {fileID: 4203984970624092891, guid: 10eb5cf5991cba247be6493bb18ffd2c, type: 3}
+  - {fileID: 868154004490944884, guid: 7389b0277a99a004c9b0c6eb191c4523, type: 3}
+  flyingEnemyList:
+  - {fileID: 8550761308024151343, guid: b889f78432297d74caf826875d42c7ca, type: 3}
+  maxNumberOfEnemies: 20

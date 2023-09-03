@@ -17,6 +17,7 @@ public class TrackPlayerFly : State
 
     public override void Enter()
     {
+        _Animator.SetBool(_AIEntity.ANIMHASH_ATTACK, false);
         _Animator.SetBool(_AIEntity.ANIMHASH_MOVING, true);
         _Seeker.StartPath(_RigidBody.position, _Player.transform.position, OnPathCompleted);
     }
@@ -108,7 +109,9 @@ public class TrackPlayerFly : State
 
     private void CalculatePlayerDis()
     {
-        float _DisToPlayer = Vector2.Distance(_RigidBody.position, _Player.transform.position);
+        float _DisToPlayer = Vector2.Distance(
+            new Vector2(_RigidBody.position.x, _RigidBody.position.y),
+            new Vector2(_Player.transform.position.x, _Player.transform.position.y));
         if (_DisToPlayer <= _AIEntity.GetInstanceStats().attackRange)
             _StateMachine.CurrentState = new AttackPlayer(_AIEntity);
     }

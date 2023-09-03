@@ -36,7 +36,10 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
     public Seeker GetSeeker() => _Seeker;
 
     private Currency _PlayerCurrency;
+    private IDamagable _PlayerDamage;
     private ZoneSpawner _ZoneSpawner;
+
+    [SerializeField] private AnimationAttackHook _AnimAttackhook;
 
     #region Instance Stats
 
@@ -54,21 +57,21 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
 
     #endregion
 
-    private void Start()
+    private void Awake()
     {
         _Player = GameObject.FindGameObjectWithTag("Player");
         _PlayerCurrency = _Player.GetComponent<Currency>();
-
-        _InstanceStats = new InstanceEntityStats(entityStats);
+        _PlayerDamage = _Player.GetComponent<IDamagable>();
 
         _Seeker = GetComponent<Seeker>();
         _Animator = GetComponentInChildren<Animator>();
         _Rigidbody = GetComponent<Rigidbody2D>();
+    }
 
-        if (isFly)
-            _StateMachine.CurrentState = new TrackPlayerFly(this);
-        else
-            _StateMachine.CurrentState = new TrackPlayer(this);
+    private void Start()
+    {
+        _InstanceStats = new InstanceEntityStats(entityStats);
+        _AnimAttackhook.Attack = PerformAttack;
     }
 
     private void Update()
@@ -94,10 +97,25 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
 
     public void Death()
     {
-        _PlayerCurrency?.AddCurrency(deathSouls);
+        //_PlayerCurrency?.AddCurrency(deathSouls);
         _ZoneSpawner?.RemoveEnemyFromZone(gameObject);
-        _Animator?.SetBool(ANIMHASH_DEAD, true);
+        _Animator.SetBool(ANIMHASH_DEAD, true);
+        _Animator.SetBool(ANIMHASH_MOVING, false);
+        _Animator.SetBool(ANIMHASH_ATTACK, false);
         enabled = false;
+
+        if(GetIsSuicide())
+            gameObject.SetActive(false);
+    }
+
+    private void PerformAttack()
+    {
+        _PlayerDamage.Damage(GetInstanceStats().attackDamage);
+
+        if (GetIsSuicide())
+            Death();
+        else
+            _Animator.SetTrigger(ANIMHASH_ATTACK);
     }
 
     #endregion
@@ -108,17 +126,17 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
 
     public void Reset(ObjectPoolItemData _NextItemResetData)
     {
+        enabled = true;
+        gameObject.SetActive(true);
+        transform.position = _NextItemResetData.spawnPosition;
+        _ZoneSpawner = _NextItemResetData.spawner.GetComponent<ZoneSpawner>();
         _InstanceStats = new InstanceEntityStats(entityStats);
         
         if (isFly)
             _StateMachine.CurrentState = new TrackPlayerFly(this);
         else
             _StateMachine.CurrentState = new TrackPlayer(this);
-        
-        transform.position = _NextItemResetData.spawnPosition;
-        _ZoneSpawner = _NextItemResetData.spawner.GetComponent<ZoneSpawner>();
         _Animator.SetBool(ANIMHASH_DEAD, false);
-        enabled = true;
     }
 
     public bool IsActive() => gameObject.activeSelf;

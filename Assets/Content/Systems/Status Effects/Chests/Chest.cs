@@ -5,8 +5,9 @@ public class Chest : MonoBehaviour, IInteract
     [SerializeField] private StatusEffectSOBase[] randomChestEffects;
     [SerializeField] private int soulPrice;
 
-    public void Interact(GameObject _Player, Currency _PlayerCurreny)
+    public void PerformInteract(GameObject _Player, Currency _PlayerCurreny)
     {
+        Debug.Log("Chest Was Interacted");
         if (!_PlayerCurreny.CheckCurrency(soulPrice))
             return;
 
@@ -28,6 +29,17 @@ public class Chest : MonoBehaviour, IInteract
         else
         {
             TickTimer.CreateTickTimer(_Player, _TargetEffector, _randomEffect);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log($"Trigger Entered: {other.name}");
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Trigger Player");
+            Interact interact = other.GetComponent<Interact>();
+            interact.Interaction = PerformInteract;
         }
     }
 }

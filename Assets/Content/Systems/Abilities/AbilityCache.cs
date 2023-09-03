@@ -38,10 +38,19 @@ public class AbilityCache : MonoBehaviour
         _CharacterCooldownReduction = _EntityStats.cooldownReduction;
     }
 
+    #region Animation
+
+    private Animator _Animator;
+    private int ANIMHASH_ATTACK = Animator.StringToHash("IsAttacking");
+
+    #endregion
+
     private Vector3 _CharacterLookDir;
 
     private void Start()
     {
+        _Animator = GetComponent<Animator>();
+
         normalAtack?.SetUp();
         Ability1?.SetUp();
         Ability2?.SetUp();
@@ -78,6 +87,8 @@ public class AbilityCache : MonoBehaviour
 
         if (controls.RetrieveAbility3() && !_Ability3OnCooldown)
             PerformAbility3();
+
+        _Animator.SetBool(ANIMHASH_ATTACK, controls.RetrieveNormalAttackHeld());
     }
 
     private void CountdownCooldowns()

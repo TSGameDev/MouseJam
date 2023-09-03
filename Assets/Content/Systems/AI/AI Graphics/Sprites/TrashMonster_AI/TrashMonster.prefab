@@ -152,7 +152,9 @@ MonoBehaviour:
   deathSouls: 10
   isFly: 0
   isSuicide: 0
+  inverseVisuals: 1
   nextWaypointDis: 1
+  _AnimAttackhook: {fileID: 2916687254773805461}
 --- !u!1 &9139647861870182033
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +166,7 @@ GameObject:
   - component: {fileID: 563453968210968650}
   - component: {fileID: 6668004992853484672}
   - component: {fileID: 6240678389406933223}
+  - component: {fileID: 2916687254773805461}
   m_Layer: 6
   m_Name: Enemy_Graphics
   m_TagString: Untagged
@@ -259,3 +262,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2916687254773805461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9139647861870182033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c43ac14ccd88e43bd19dfe08f1f5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
