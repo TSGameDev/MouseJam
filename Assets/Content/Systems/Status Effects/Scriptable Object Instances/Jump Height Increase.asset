@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9bdfe8c4058b0e4e84bc7077cbd5671, type: 3}
+  m_Name: Jump Height Increase
+  m_EditorClassIdentifier: 
+  effectName: Jump Height Increase
+  effectDescription: Jump Height is increased by 2 perminantly
+  isInstantEffect: 0
+  isPassive: 1
+  maxTicks: 0
+  tickIntervals: 0
+  maxHealthIncrease: 0
+  speedIncrease: 0
+  jumpHeightIncrease: 2
+  maxAirJumpsIncrease: 0
+  cooldownReductionIncrease: 0

@@ -119,5 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31b5ec6d78a6b5a43b9e9c92d273d4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomChestEffects: []
+  randomChestEffects:
+  - {fileID: 11400000, guid: 9de4c309bdfed684db4a38befbfa9d21, type: 2}
+  - {fileID: 11400000, guid: d592c45bfa5bc514ca7cad758a82ff23, type: 2}
+  - {fileID: 11400000, guid: e8c520df21a1f7c45b800d637effc675, type: 2}
+  - {fileID: 11400000, guid: ce9853472986f8c4d83ac3c6df7afca1, type: 2}
+  - {fileID: 11400000, guid: ff062f6a09e7f7e4282442c49ed8466f, type: 2}
+  - {fileID: 11400000, guid: a3d336713215bbc45a9efbb461632646, type: 2}
   soulPrice: 100

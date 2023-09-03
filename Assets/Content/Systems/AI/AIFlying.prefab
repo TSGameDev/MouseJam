@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1772474204523504253}
   - component: {fileID: 6873346345742496368}
   m_Layer: 6
-  m_Name: AI
+  m_Name: AIFlying
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   player: {fileID: 0}
   entityStats: {fileID: 11400000, guid: ece5d0f16be5a2a4197580325cbc2fab, type: 2}
   deathSouls: 0
+  isFly: 1
 --- !u!50 &1772474204523504253
 Rigidbody2D:
   serializedVersion: 4

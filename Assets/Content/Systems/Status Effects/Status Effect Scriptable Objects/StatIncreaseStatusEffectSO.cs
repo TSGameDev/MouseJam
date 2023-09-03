@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "New Stat Increase Effect", menuName = "Status Effects/New Stat Increase")]
 public class StatIncreaseStatusEffectSO : StatusEffectSOBase
 {
     [SerializeField] private int maxHealthIncrease;

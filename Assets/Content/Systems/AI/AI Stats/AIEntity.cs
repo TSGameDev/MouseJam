@@ -8,6 +8,8 @@ public class AIEntity : MonoBehaviour, IDamagable, IObjectPoolItem
     [SerializeField] EntityStats entityStats;
 
     [SerializeField] private int deathSouls;
+    [SerializeField] private bool isFly;
+    public bool GetIsFly() => isFly;
 
     private InstanceEntityStats _InstanceStats;
     public InstanceEntityStats GetInstanceStats() => _InstanceStats;

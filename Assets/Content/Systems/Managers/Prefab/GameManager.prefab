@@ -303,8 +303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4d1b463fa941d48bc42e920c2661f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoneSpawners:
-  - {fileID: 0}
-  enemyList:
-  - {fileID: 3401187868091417896, guid: 85d17740869b735469c0e22a8dcf9f54, type: 3}
+  zoneSpawners: []
+  enemyList: []
   maxNumberOfEnemies: 10

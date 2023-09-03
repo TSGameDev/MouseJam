@@ -17,6 +17,10 @@ MonoBehaviour:
   baseAcceleration: 100
   baseAirAcceleration: 85
   baseJumpHeight: 5
-  baseMaxAirJumps: 2
+  baseMaxAirJumps: 1
   baseDownwardGravityMultiplier: 3
   baseUpwardGravityMultiplier: 1.7
+  baseCooldownReduction: 0
+  baseAttackRange: 0
+  timeBetweenAttacks: 0
+  attackDamage: 0
